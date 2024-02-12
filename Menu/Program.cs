@@ -15,7 +15,7 @@ namespace Menu
             Console.WriteLine("2: Insalata di pollo  5.20 Euro");
             Console.WriteLine("3: Pizza Margherita 10.00 Euro");
             Console.WriteLine("4: Pizza 4 Formaggi  12.50 Euro");
-            Console.WriteLine("5: Pz patatine fritte  3.50 Euro");
+            Console.WriteLine("5: Patatine fritte  3.50 Euro");
             Console.WriteLine("6: Insalata di riso  8.00 Euro");
             Console.WriteLine("7: Frutta di stagione  5.00 Euro");
             Console.WriteLine("8: Pizza fritta  5.00 Euro");
@@ -23,10 +23,10 @@ namespace Menu
             Console.WriteLine("10: Panino Hamburger  7.90 Euro");
             Console.WriteLine("11: Stampa conto finale e conferma");
             Console.WriteLine("==============MENU==============");
-            SelectFood();
+            Menu();
         }
 
-        static void SelectFood()
+        static void Menu()
         {
             Console.WriteLine("Cosa vorresti mangiare?");
             if (int.TryParse(Console.ReadLine(), out int value))
@@ -56,7 +56,7 @@ namespace Menu
                     case 5:
                         totale += 3.50f;
                         ordine.Add("Pz patatine fritte  3.50 Euro");
-                        Console.WriteLine("Hai selezionato: Pz patatine fritte  3.50 Euro");
+                        Console.WriteLine("Hai selezionato:  patatine fritte  3.50 Euro");
                         break;
                     case 6:
                         totale += 8.00f;
@@ -84,30 +84,31 @@ namespace Menu
                         Console.WriteLine("Hai selezionato: Panino Hamburger  7.90 Euro");
                         break;
                     case 11:
-                        ShowCheck();
+                        Conto();
                         return;
                     default:
                         Console.WriteLine("Valore non riconosciuto, prego riprovare.");
-                        SelectFood();
+                        Menu();
                         break;
                 }
-                SelectFood();
+                Menu();
             }
             else
             {
                 Console.WriteLine("Inserimento non valido, prego riprovare.");
-                SelectFood();
+                Menu();
             }
         }
 
-        static void ShowCheck()
+        static void Conto()
         {
             Console.WriteLine("Hai ordinato i seguenti piatti:");
             foreach (var piatto in ordine)
             {
                 Console.WriteLine(piatto);
             }
-            Console.WriteLine($"Totale:  {totale + 3.00:F2} Euro (comprensivo di servizio al tavolo di  3.00 Euro)");
+            Console.WriteLine($"Totale: {totale} Euro ");
+
         }
 
         static void Main(string[] args)
